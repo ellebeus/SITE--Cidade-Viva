@@ -1,0 +1,14 @@
+{
+  "name": "generate-brazil-svg",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "generate": "node generate-brazil-svg.js"
+  },
+  "dependencies": {
+    "topojson-client": "^3.1.0",
+    "d3-geo": "^3.0.1",
+    "d3-geo-path": "^2.0.1",
+    "node-fetch": "^2.6.7"
+  }
+}
