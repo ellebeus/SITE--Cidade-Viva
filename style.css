@@ -1,0 +1,107 @@
+body {
+    box-sizing: border-box;
+    /* Certifique-se de que o body use um modelo de layout moderno, se estiver usando Tailwind ou similar, ajuste aqui */
+}
+
+/* Estilo do Fundo e Cards */
+.gradient-bg {
+    background: linear-gradient(135deg, #000000 0%, #764ba2 100%);
+}
+
+.card-hover {
+    transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(102, 126, 234, 0.3);
+}
+
+/* ------------------------------------------------------------- */
+/* ESTILOS DE MAPA LEAFLET */
+/* ------------------------------------------------------------- */
+
+/* 1. Container Principal do Mapa */
+#map-container {
+    /* É ESSENCIAL que o container do mapa tenha altura! */
+    width: 100%; 
+    height: 450px;
+    border-radius: 8px; /* Para um visual mais agradável */
+    overflow: hidden;
+    margin-top: 20px; /* Espaçamento opcional */
+}
+
+/* 2. Estilo do Marcador de Pulso (L.divIcon) */
+
+/* Classe container que envolve o ponto animado (adicionada pelo L.divIcon) */
+.city-pulse-icon {
+    border: none !important; 
+    background: none !important; 
+    /* Garante que o container L.divIcon não tenha estilos que interfiram */
+}
+
+/* O elemento interno (o ponto visível e animado) */
+.city-dot-inner {
+    width: 12px;
+    height: 12px;
+    background-color: #764ba2; /* Roxo escuro do seu tema */
+    border-radius: 50%; /* Torna-o um círculo perfeito */
+    border: 2px solid #FFFFFF; /* Borda branca para destaque */
+    
+    /* Configuração inicial da animação */
+    box-shadow: 0 0 0 0 rgba(118, 75, 162, 0.7); 
+    animation: pulse 2s infinite;
+}
+
+/* 3. Keyframes da Animação de Pulso */
+@keyframes pulse {
+    0% {
+        transform: scale(0.9);
+        box-shadow: 0 0 0 0 rgba(118, 75, 162, 0.7); /* Pulso inicia forte */
+    }
+    50% {
+        transform: scale(1.1); /* Ponto fica levemente maior */
+        box-shadow: 0 0 0 10px rgba(118, 75, 162, 0); /* O pulso se expande e fica transparente */
+    }
+    100% {
+        transform: scale(0.9);
+        box-shadow: 0 0 0 0 rgba(118, 75, 162, 0.7); /* Volta ao estado inicial */
+    }
+}
+
+
+/* ------------------------------------------------------------- */
+/* ESTILOS GERAIS (Modais e Quiz - Inalterados) */
+/* ------------------------------------------------------------- */
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    z-index: 1000;
+}
+
+.modal.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.quiz-option {
+    transition: all 0.3s ease;
+}
+
+.quiz-option:hover {
+    background: #e0e7ff;
+    transform: translateX(5px);
+}
+
+.progress-bar {
+    transition: width 0.5s ease;
+}
+
+/* FIM DO CÓDIGO CSS */
