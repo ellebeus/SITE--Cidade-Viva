@@ -90,9 +90,7 @@
         <div class="container mx-auto px-4">
             <div class="flex items-center justify-between">
                 <div class="flex items-center space-x-3">
-                    <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center">
-                        <span class="text-2xl">🏙️</span>
-                    </div>
+                    <img src="Group 7.svg" alt="Logo">
                     <div>
                         <h1 class="text-3xl font-bold">Cidade Viva</h1>
                         <p class="text-blue-100">Portal de Inovações Urbanas Sustentáveis</p>
@@ -867,6 +865,9 @@
             
             // Mostrar página selecionada
             document.getElementById(pageId).classList.remove('hidden');
+            
+            // Salvar página atual no localStorage
+            localStorage.setItem('currentPage', pageId);
         }
 
         // Funções do mapa
@@ -1049,7 +1050,9 @@
 
         // Inicialização
         document.addEventListener('DOMContentLoaded', function() {
-            showPage('home');
+            // Restaurar página salva ou mostrar home como padrão
+            const savedPage = localStorage.getItem('currentPage') || 'home';
+            showPage(savedPage);
         });
         // Posiciona marcadores de cidade usando uma projeção d3 compatível com o caminho do Brasil
         // Cria/atualiza círculos SVG dentro do próprio <svg> para garantir posicionamento preciso e escalável.
